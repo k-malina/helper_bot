@@ -20,7 +20,7 @@ def text_to_speech(text):
     if response.status_code == 200:
         return True, response.content
     else:
-        return False, "При запросе в SpeechKit возникла ошибка"
+        return False, "При запросе в SpeechKit возникла ошибка "
 
 def speech_to_text(data):
     params = "&".join([

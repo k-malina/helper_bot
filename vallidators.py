@@ -10,7 +10,7 @@ def check_number_of_users(user_id):
     if count is None:
         return None, "Ошибка при работе с БД"
     if count > MAX_USERS:
-        return None, "Превышено максимальное количество пользователей"
+        return None, "Превышено максимальное количество пользователей "
     return True, ""
 
 def is_gpt_token_limit(messages, total_spent_tokens):
