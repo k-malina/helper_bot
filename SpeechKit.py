@@ -1,5 +1,6 @@
-from config import IAM_TOKEN, FOLDER_ID
 import requests
+from creds import get_creds
+IAM_TOKEN, FOLDER_ID = get_creds()
 def text_to_speech(text):
     headers = {
         'Authorization': f'Bearer {IAM_TOKEN}',

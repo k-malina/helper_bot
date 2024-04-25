@@ -5,8 +5,9 @@ from database import *
 from vallidators import *
 from SpeechKit import *
 import logging
+from creds import get_bot_token
 
-bot = telebot.TeleBot(bot_token)
+bot = telebot.TeleBot(get_bot_token())
 
 logging.basicConfig(
     level=logging.INFO,

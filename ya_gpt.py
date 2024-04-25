@@ -1,6 +1,9 @@
 import requests
 import logging
-from config import LOGS, MAX_GPT_TOKENS, SYSTEM_PROMPT, IAM_TOKEN, FOLDER_ID
+from config import *
+from creds import get_creds
+
+IAM_TOKEN, FOLDER_ID= get_creds()
 
 logging.basicConfig(filename=LOGS,
                     level=logging.ERROR,

@@ -1,6 +1,6 @@
 import logging
-from config import LOGS, MAX_USERS, MAX_USER_GPT_TOKENS
-from database import count_users, count_all_limits
+from config import *
+from database import *
 from ya_gpt import count_gpt_tokens
 
 logging.basicConfig(filename=LOGS, level=logging.ERROR, format="%(asctime)s FILE: %(filename)s IN: %(funcName)s MESSAGE: %(message)s", filemode="w")
