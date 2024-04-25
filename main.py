@@ -20,7 +20,7 @@ u_data = []
 def start(message):
     u_id = message.chat.id
     if len(u_data) >= MAX_USERS:
-        bot.send_message(u_id, 'Достигнут лимит пользователей ')
+        bot.send_message(u_id, 'Достигнут лимит пользователей')
     else:
         if u_id not in u_data:
             u_data.insert(0, u_id)

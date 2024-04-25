@@ -40,7 +40,7 @@ def get_creds():
             expiration = datetime.strptime(file_data["expires_at"][:26], "%Y-%m-%dT%H:%M:%S.%f")
         # если срок годности истёк
         if expiration < datetime.now():
-            logging.info("Срок годности iam_token истёк ")
+            logging.info("Срок годности iam_token истёк")
             # получаем новый iam_token
             create_new_token()
     except:
