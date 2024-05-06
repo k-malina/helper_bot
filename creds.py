@@ -4,21 +4,21 @@ import time  # модуль для работы со временем
 from datetime import datetime  # модуль для работы с датой и временем
 import requests
 # подтягиваем константы из config-файла
-from config import LOGS, IAM_TOKEN_PATH, FOLDER_ID_PATH, BOT_TOKEN_PATH
-
+from config import LOGS, IAM_TOKEN_PATH, FOLDER_ID_PATH, BOT_TOKEN_PATH, URL
+from http import HTTPStatus
 # настраиваем запись логов в файл
 logging.basicConfig(filename=LOGS, level=logging.INFO,
                     format="%(asctime)s FILE: %(filename)s IN: %(funcName)s MESSAGE: %(message)s", filemode="w")
 
 # получение нового iam_token
 def create_new_token():
-    url = "http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token"
+    url = URL
     headers = {
         "Metadata-Flavor": "Google"
     }
     try:
         response = requests.get(url=url, headers=headers)
-        if response.status_code == 200:
+        if response.status_code == HTTPStatus.OK:
             token_data = response.json()  # вытаскиваем из ответа iam_token
             # добавляем время истечения iam_token к текущему времени
             token_data['expires_at'] = time.time() + token_data['expires_in']

@@ -1,14 +1,15 @@
 import requests
 from creds import get_creds
 IAM_TOKEN, FOLDER_ID = get_creds()
+from config import VOICE, LANG
 def text_to_speech(text):
     headers = {
         'Authorization': f'Bearer {IAM_TOKEN}',
     }
     data = {
         'text': text,
-        'lang': 'ru-RU',
-        'voice': 'filipp',
+        'lang': LANG,
+        'voice': VOICE,
         'folderId': FOLDER_ID,
     }
 

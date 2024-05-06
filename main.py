@@ -1,5 +1,5 @@
 import telebot
-from config import *
+import config
 from ya_gpt import ask_gpt
 from database import *
 from vallidators import *
@@ -23,7 +23,7 @@ def start(message):
         bot.send_message(u_id, 'Достигнут лимит пользователей')
     else:
         if u_id not in u_data:
-            u_data.insert(0, u_id)
+            u_data.append(u_id)
     print (u_data)
     bot.send_message(u_id, 'Привет, я твой бот помощник использующий ИИ'
                                       ' для поддержания диалога, нахождения ответов на твои '
