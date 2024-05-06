@@ -88,3 +88,16 @@ def count_all_limits(user_id, limit_type):
     except Exception as e:
         logging.error(e)
         return 0
+
+def count_all_symbol(user_id, db_name="messsages.db"):
+    try:
+        with sqlite3.connect(db_name) as conn:
+            cursor = conn.cursor()
+            cursor.execute('''SELECT SUM(tts_symbols) FROM messages WHERE user_id=?''', (user_id,))
+            data = cursor.fetchone()
+            if data and data[0]:
+                return data[0]
+            else:
+                return 0
+    except Exception as e:
+        logging.info(f"Ошибка при подсчете символов: {e}")
